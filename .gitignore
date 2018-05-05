@@ -1,10 +1,13 @@
 css/DataTables-1.10.16
+css/orders.css
+css/promise.css
 
 html/50x.html
 html/index.html
-html/order.html
+html/orders.html
 html/promise.html
+html/indexedDB.html
 
 js/indexedDB.js
-js/order.js
+js/orders.js
 js/promise.js
