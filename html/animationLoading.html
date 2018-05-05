@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>animationLoading</title>
+	<style type="text/css" media="screen">
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		.loading{
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			left: 48%;
+			top:48%;
+		}
+		.loading div{
+			border-radius: 50%;
+			border:3px solid skyblue;
+		}
+		.outer{
+			width: 50px;
+			height: 50px;
+			border-top-color: transparent!important;
+			border-bottom-color: transparent!important;
+			animation: span-right 0.8s linear infinite;
+		}
+		.inner{
+			width: 30px;
+			height: 30px;
+			position: relative;
+			left:10px;
+			top:-46px;
+			border-left-color: transparent!important;
+			border-right-color: transparent!important;
+			animation: span-left 0.8s linear infinite;
+		}
+		@keyframes span-right{
+			from{
+				transform: rotate(0deg);
+				opacity: 0.2;
+			}
+			50%{
+				transform: rotate(180deg);
+				opacity: 1；
+			}
+			to{
+				transform: rotate(360deg);
+				opacity: 0.2;
+			}
+		}
+		@keyframes span-left{
+			from{
+				transform: rotate(0deg);
+				opacity: 0.2;
+			}
+			50%{
+				transform: rotate(-180deg);
+				opacity: 1;
+			}
+			to{
+				transform: rotate(-360deg);
+				opacity: 0.2;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loading">
+		<div class="outer"></div>
+		<div class="inner"></div>
+	</div>
+</body>
+</html>
