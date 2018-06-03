@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>react</title>
+	<script src="../js/libs/react.js"></script>
+	<script src="../js/libs/react-dom.js"></script>
+	 <script src="../js/libs/browser.min.js"></script>
+</head>
+<body>
+	<div id="name"></div>
+	<div id="name2"></div>
+	<script type="text/babel">
+		var name = ['gongying', 'wangyan'];
+		ReactDOM.render(
+			<div>
+			{
+					name.map(function(v, i){
+					return <div key={i}>hello, {v}</div>
+					})
+			}			
+			</div>,
+			document.getElementById("name")
+		);
+
+		var hello = [
+			<h1  key='1'>hello, gong</h1>,
+			<h1 key='2'>hello, wang</h1>
+		];
+		ReactDOM.render(
+			<div>{hello}</div>,
+			document.getElementById("name2")
+		)
+	</script>
+</body>
+</html>

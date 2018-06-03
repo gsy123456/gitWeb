@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>react dom and state</title>
+	<script src="../js/libs/react.js"></script>
+	<script src="../js/libs/react-dom.js"></script>
+	<script src="../js/libs/browser.min.js"></script>
+</head>
+<body>
+	<div id="dom"></div>
+	<script type="text/babel">
+		var DomState = React.createClass({
+			getInitialState:function(){
+				return {like:false};
+			},
+			changeWordClick:function(){
+				this.setState({like:!this.state.like});
+			},
+			handleClick:function(){
+				this.refs.likeyou.focus();
+			},
+			render:function(){
+				var text = this.state.like? "like": "don't like";				
+				return (
+					<div>
+						<input type="text" ref="likeyou"/>
+						<p>I {text} you</p>
+						<input type="button" value="focus input" onClick={this.handleClick} />
+						<input type="button" value="change word" onClick={this.changeWordClick} />
+					</div>
+				)
+			}
+		});
+		ReactDOM.render(
+			<DomState />,
+			document.getElementById("dom")
+		)
+	</script>
+</body>
+</html>

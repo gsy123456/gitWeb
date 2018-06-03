@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>react component life circle</title>
+	<script src="../js/libs/react.js"></script>
+	<script src="../js/libs/react-dom.js"></script>
+	<script src="../js/libs/browser.min.js"></script>
+</head>
+<body>
+	<div id="lifeCircle"></div>
+	<script type="text/babel">
+		var LifeCircle = React.createClass({
+			getInitialState:function(){
+				return {
+					opacity:1.0
+				}
+			},
+			componentDidMount:function(){
+				var timer = setInterval(function(){
+					var opacity = this.state.opacity;
+					opacity -= .05;
+					if(opacity < 0.1){
+						opacity = 1.0;
+					}
+					this.setState({opacity:opacity})
+				}.bind(this),300);
+			},
+			render:function(){
+				return <div style={{opacity:this.state.opacity}}>i love you</div>
+			}
+		});
+		ReactDOM.render(
+			<LifeCircle/>,
+			document.getElementById("lifeCircle")
+		)
+	</script>
+</body>
+</html>
